@@ -30,6 +30,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Configure GitHub Pages (auto-enables Pages on first run)
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - name: Assemble site (exclude source RDS files from the deploy)
         run: |
           mkdir _site
