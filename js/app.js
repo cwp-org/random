@@ -854,4 +854,6 @@ async function init() {
   }
 }
 
-init();
+// Started by the client-side access gate (js/auth.js) after successful
+// authentication — no data is fetched or processed before login succeeds.
+window.__startDashboard = init;

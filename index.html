@@ -9,14 +9,30 @@
 </head>
 <body>
 
-<header class="app-header">
+<!-- Client-side access gate for this static GitHub Pages site. NOT
+     server-side authentication: it deters casual access only (see js/auth.js). -->
+<div id="login-screen" class="login-screen">
+  <form id="login-form" class="login-card" autocomplete="off">
+    <h1 class="login-title">Depth Review &amp; Adjustment Dashboard</h1>
+    <p class="login-sub">This dashboard is access-restricted. Enter the access password to continue.</p>
+    <label class="field">
+      <span class="field-label">Access password</span>
+      <input type="password" id="login-password" autocomplete="current-password" required>
+    </label>
+    <p id="login-error" class="login-error" role="alert" hidden></p>
+    <button type="submit" class="btn btn-primary login-btn">Unlock dashboard</button>
+  </form>
+</div>
+
+<header class="app-header" data-requires-auth hidden>
   <h1>Depth Review &amp; Adjustment Dashboard</h1>
   <span class="tz-badge" title="All plotted times use DateTime_GMT_minus_5 (fixed offset, no daylight saving)">Times: GMT&minus;5</span>
+  <button id="btn-logout" class="btn btn-small logout-btn" type="button" title="End this session and return to the login screen">Log out</button>
 </header>
 
 <div id="status-bar" class="status-bar" hidden></div>
 
-<main class="layout">
+<main class="layout" data-requires-auth hidden>
 
   <!-- ======================= LEFT PANEL ======================= -->
   <aside class="panel panel-left" aria-label="Site and date range controls">
@@ -128,11 +144,12 @@
 
 </main>
 
-<footer class="app-footer">
+<footer class="app-footer" data-requires-auth hidden>
   <span id="footer-note">Static site &mdash; all processing happens in your browser. Original <code>Depth_m</code> values are never modified.</span>
 </footer>
 
 <script src="js/vendor/plotly-basic.min.js"></script>
 <script src="js/app.js"></script>
+<script src="js/auth.js"></script>
 </body>
 </html>
