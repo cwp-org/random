@@ -120,6 +120,16 @@ controls (start/end inputs plus Full range / Last year / Last 90 d presets).
   depth, the net adjustment applied, `Phase`, and `Source_Block`.
 * *Adjustment history (CSV)* — the history table.
 
+**Access gate:** the site shows a full-page password screen before anything
+loads; no dashboard data is fetched until the password is accepted. Only a
+SHA-256 hash of the password is embedded in `js/auth.js` (no plain text),
+the check runs in the browser, and the authenticated state is kept in
+`sessionStorage` (a *Log out* button in the header clears it; closing the
+browser session also ends it). **This is a client-side gate for a static
+GitHub Pages site, not server-side authentication** — the underlying files
+remain publicly reachable by URL, so treat it as a deterrent for casual
+access, not protection for sensitive data.
+
 **Time handling:** all plotting, range selection, and adjustment windows use
 `DateTime_GMT_minus_5` as a fixed-offset GMT−5 wall-clock time (no
 daylight-saving shifts, regardless of your computer's time zone). The original
