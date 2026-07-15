@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Depth Review &amp; Adjustment Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='13' font-size='13'%3E%F0%9F%8C%8A%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="app-header">
+  <h1>Depth Review &amp; Adjustment Dashboard</h1>
+  <span class="tz-badge" title="All plotted times use DateTime_GMT_minus_5 (fixed offset, no daylight saving)">Times: GMT&minus;5</span>
+</header>
+
+<div id="status-bar" class="status-bar" hidden></div>
+
+<main class="layout">
+
+  <!-- ======================= LEFT PANEL ======================= -->
+  <aside class="panel panel-left" aria-label="Site and date range controls">
+    <section class="panel-section">
+      <h2>Site</h2>
+      <label class="field">
+        <span class="field-label">Monitoring site</span>
+        <select id="site-select" autocomplete="off"></select>
+      </label>
+      <dl id="site-info" class="site-info"></dl>
+    </section>
+
+    <section class="panel-section">
+      <h2>Date range</h2>
+      <label class="field">
+        <span class="field-label">Start (GMT&minus;5)</span>
+        <input type="datetime-local" id="range-start" step="60">
+      </label>
+      <label class="field">
+        <span class="field-label">End (GMT&minus;5)</span>
+        <input type="datetime-local" id="range-end" step="60">
+      </label>
+      <div class="btn-row">
+        <button id="btn-apply-range" class="btn btn-primary" type="button">Apply range</button>
+      </div>
+      <div class="btn-row presets">
+        <button id="btn-full-range" class="btn" type="button" title="Show the full period of record">Full range</button>
+        <button id="btn-last-year" class="btn" type="button" title="Last 365 days of the record">Last year</button>
+        <button id="btn-last-90" class="btn" type="button" title="Last 90 days of the record">Last 90 d</button>
+      </div>
+      <p class="hint">You can also zoom by dragging on a plot, use the mode-bar tools, the scroll wheel, or the time-range slider under the adjusted plot. Both plots stay synchronized.</p>
+    </section>
+  </aside>
+
+  <!-- ======================= CENTER PANEL ======================= -->
+  <section class="center" aria-label="Time series plots">
+    <div class="plot-card">
+      <div class="plot-card-head">
+        <h2>Original raw depth</h2>
+        <span id="raw-res-note" class="res-note"></span>
+      </div>
+      <div id="plot-raw" class="plot"></div>
+    </div>
+    <div class="plot-card">
+      <div class="plot-card-head">
+        <h2>Adjusted depth</h2>
+        <span id="adj-res-note" class="res-note"></span>
+      </div>
+      <div id="plot-adj" class="plot plot-tall"></div>
+    </div>
+    <div id="loading-overlay" class="loading-overlay" hidden>
+      <div class="loading-box">
+        <div class="spinner" aria-hidden="true"></div>
+        <div id="loading-text">Loading&hellip;</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= RIGHT PANEL ======================= -->
+  <aside class="panel panel-right" aria-label="Depth adjustment controls">
+    <section class="panel-section">
+      <h2>Depth adjustment</h2>
+      <p class="hint">Adds a constant offset to <code>Depth_m</code> for every record whose time falls inside the window (inclusive). The original data are never modified &mdash; adjustments live only in an <em>adjusted-depth</em> copy in your browser.</p>
+      <label class="field">
+        <span class="field-label">Adjustment start (GMT&minus;5)</span>
+        <input type="datetime-local" id="adj-start" step="60">
+      </label>
+      <label class="field">
+        <span class="field-label">Adjustment end (GMT&minus;5)</span>
+        <input type="datetime-local" id="adj-end" step="60">
+      </label>
+      <div class="btn-row">
+        <button id="btn-use-view" class="btn btn-small" type="button" title="Fill start/end from the current plot window">Use current view</button>
+      </div>
+      <label class="field">
+        <span class="field-label">Depth adjustment (m, + or &minus;)</span>
+        <input type="number" id="adj-delta" step="0.001" placeholder="e.g. -0.15">
+      </label>
+      <div class="btn-row">
+        <button id="btn-apply-adj" class="btn btn-primary" type="button">Apply adjustment</button>
+      </div>
+      <div class="btn-row">
+        <button id="btn-undo-adj" class="btn" type="button">Undo last</button>
+        <button id="btn-reset-adj" class="btn btn-danger" type="button">Reset all</button>
+      </div>
+    </section>
+
+    <section class="panel-section">
+      <h2>Adjustment history</h2>
+      <div class="table-wrap">
+        <table id="history-table" class="history-table">
+          <thead>
+            <tr><th>#</th><th>Start</th><th>End</th><th>&Delta; (m)</th><th>Rows</th><th>Applied at</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p id="history-empty" class="hint">No adjustments applied to this site yet.</p>
+    </section>
+
+    <section class="panel-section">
+      <h2>Download</h2>
+      <div class="btn-row btn-col">
+        <button id="btn-dl-adjusted" class="btn" type="button" title="All rows for the selected site, original + adjusted depth, as CSV">Adjusted data (CSV)</button>
+        <button id="btn-dl-history" class="btn" type="button" title="The adjustment-history table as CSV">Adjustment history (CSV)</button>
+      </div>
+    </section>
+  </aside>
+
+</main>
+
+<footer class="app-footer">
+  <span id="footer-note">Static site &mdash; all processing happens in your browser. Original <code>Depth_m</code> values are never modified.</span>
+</footer>
+
+<script src="js/vendor/plotly-basic.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
