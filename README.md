@@ -126,28 +126,22 @@ daylight-saving shifts, regardless of your computer's time zone). The original
 `DateTime` character strings are retained verbatim for QA/QC in hover text and
 CSV exports.
 
-## 3. Enabling GitHub Pages deployment
+## 3. GitHub Pages deployment
 
-The site is 100 % static, so deployment is just serving this repository.
-One-time setup (choose either option):
+The site is 100 % static and is served from the **`gh-pages` branch**, which
+GitHub Pages enabled automatically the first time that branch was pushed —
+no repository settings are required. The live site is
+`https://<user>.github.io/<repository>/`.
 
-**Option A — GitHub Actions workflow (recommended, already included):**
+Deployment is automatic: on every push to `main`, the included workflow
+(`.github/workflows/pages.yml`) assembles `index.html`, `.nojekyll`, `css/`,
+`js/`, and `data/` (the multi-MB source `.rds` files are excluded) and
+force-pushes the result to `gh-pages`; GitHub Pages then publishes it within
+a minute or two. The workflow can also be run on demand from the Actions tab
+(*workflow_dispatch*).
 
-1. In the repository, go to **Settings → Pages**.
-2. Under **Build and deployment → Source**, choose **GitHub Actions**.
-3. Merge/push to `main`. The included workflow
-   (`.github/workflows/pages.yml`) uploads `index.html`, `css/`, `js/`, and
-   `data/` (the multi-MB source `.rds` files are excluded from the deploy)
-   and publishes the site at
-   `https://<user>.github.io/<repository>/`.
-
-**Option B — deploy from branch (no workflow needed):**
-
-1. **Settings → Pages → Source**: *Deploy from a branch*, branch `main`,
-   folder `/ (root)`.
-2. GitHub serves the repository root directly. The included `.nojekyll` file
-   keeps Jekyll from touching the files. (This also uploads the `.rds`
-   files; harmless, just slightly larger.)
+To confirm or change the Pages source, see **Settings → Pages** — it should
+read *Deploy from a branch: `gh-pages` / (root)*.
 
 ### Running locally
 
