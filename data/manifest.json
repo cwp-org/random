@@ -1,0 +1,349 @@
+{
+ "format_version": 1,
+ "generated_utc": "2026-07-15T20:26:27Z",
+ "timezone_note": "DateTime_GMT_minus_5 is stored as POSIXct epoch seconds; the app renders it as fixed-offset GMT-5 wall-clock time (epoch - 18000 s, UTC-formatted). No daylight-saving adjustment is applied.",
+ "columns": [
+  "DateTime",
+  "DateTime_GMT_minus_5",
+  "Depth_m",
+  "Phase",
+  "Source_Block"
+ ],
+ "sites": [
+  {
+   "id": "BR_2",
+   "file": "sites/BR_2.json.gz",
+   "source_chunk": "Chunk_01_Blue_Ridge.rds",
+   "rows": 572463,
+   "rows_missing_time": 1315,
+   "rows_missing_depth": 8235,
+   "t_min": 1607009100.0,
+   "t_max": 1780289700.0,
+   "depth_min": -2.711938776,
+   "depth_max": 0.57377551,
+   "phases": [
+    "Phase 2"
+   ],
+   "source_blocks": [
+    "Phase 2 - Before 07/30/2024",
+    "Phase 2 - 07/30/2024 to Latest"
+   ],
+   "site_name": "Blue Ridge",
+   "standard_site_code": "BR",
+   "sensor_id": 2.0,
+   "bytes_gz": 2481912
+  },
+  {
+   "id": "BR_3",
+   "file": "sites/BR_3.json.gz",
+   "source_chunk": "Chunk_01_Blue_Ridge.rds",
+   "rows": 765987,
+   "rows_missing_time": 1648,
+   "rows_missing_depth": 8287,
+   "t_min": 1479013260.0,
+   "t_max": 1780289700.0,
+   "depth_min": -2.711938776,
+   "depth_max": 12.58054494,
+   "phases": [
+    "Phase 1",
+    "Phase 2"
+   ],
+   "source_blocks": [
+    "Phase 1 - Original",
+    "Phase 1 - Part 2",
+    "Phase 2 - Before 07/30/2024",
+    "Phase 2 - 07/30/2024 to Latest"
+   ],
+   "site_name": "Blue Ridge",
+   "standard_site_code": "BR",
+   "sensor_id": 3.0,
+   "bytes_gz": 3554562
+  },
+  {
+   "id": "CM_1",
+   "file": "sites/CM_1.json.gz",
+   "source_chunk": "Chunk_02_Central_Maryland.rds",
+   "rows": 916117,
+   "rows_missing_time": 1315,
+   "rows_missing_depth": 24974,
+   "t_min": 1479013440.0,
+   "t_max": 1780289700.0,
+   "depth_min": -2.531020408,
+   "depth_max": 0.753731709,
+   "phases": [
+    "Phase 1",
+    "Phase 2"
+   ],
+   "source_blocks": [
+    "Phase 1",
+    "Phase 2 - Before 07/30/2024",
+    "Phase 2 - 07/30/2024 to Latest"
+   ],
+   "site_name": "Central Maryland",
+   "standard_site_code": "CM",
+   "sensor_id": 1.0,
+   "bytes_gz": 4775758
+  },
+  {
+   "id": "CM_2",
+   "file": "sites/CM_2.json.gz",
+   "source_chunk": "Chunk_02_Central_Maryland.rds",
+   "rows": 572463,
+   "rows_missing_time": 1315,
+   "rows_missing_depth": 32440,
+   "t_min": 1607009100.0,
+   "t_max": 1780289700.0,
+   "depth_min": -2.719693878,
+   "depth_max": 0.565204082,
+   "phases": [
+    "Phase 2"
+   ],
+   "source_blocks": [
+    "Phase 2 - Before 07/30/2024",
+    "Phase 2 - 07/30/2024 to Latest"
+   ],
+   "site_name": "Central Maryland",
+   "standard_site_code": "CM",
+   "sensor_id": 2.0,
+   "bytes_gz": 2453613
+  },
+  {
+   "id": "PRV_1",
+   "file": "sites/PRV_1.json.gz",
+   "source_chunk": "Chunk_03_PRV.rds",
+   "rows": 821877,
+   "rows_missing_time": 1315,
+   "rows_missing_depth": 14884,
+   "t_min": 1479013380.0,
+   "t_max": 1780289700.0,
+   "depth_min": -14.653546,
+   "depth_max": 1.115799904,
+   "phases": [
+    "Phase 1",
+    "Phase 2"
+   ],
+   "source_blocks": [
+    "Phase 1",
+    "Phase 2 - Before 07/30/2024",
+    "Phase 2 - 07/30/2024 to Latest"
+   ],
+   "site_name": "PRV",
+   "standard_site_code": "PRV",
+   "sensor_id": 1.0,
+   "bytes_gz": 4122417
+  },
+  {
+   "id": "PRV_2",
+   "file": "sites/PRV_2.json.gz",
+   "source_chunk": "Chunk_03_PRV.rds",
+   "rows": 815213,
+   "rows_missing_time": 1315,
+   "rows_missing_depth": 8264,
+   "t_min": 1479013440.0,
+   "t_max": 1780289700.0,
+   "depth_min": -14.52430442,
+   "depth_max": 1.69144898,
+   "phases": [
+    "Phase 1",
+    "Phase 2"
+   ],
+   "source_blocks": [
+    "Phase 1",
+    "Phase 2 - Before 07/30/2024",
+    "Phase 2 - 07/30/2024 to Latest"
+   ],
+   "site_name": "PRV",
+   "standard_site_code": "PRV",
+   "sensor_id": 2.0,
+   "bytes_gz": 3903770
+  },
+  {
+   "id": "RF_1",
+   "file": "sites/RF_1.json.gz",
+   "source_chunk": "Chunk_04_Roberts_Field.rds",
+   "rows": 572463,
+   "rows_missing_time": 1315,
+   "rows_missing_depth": 25979,
+   "t_min": 1607009100.0,
+   "t_max": 1780289700.0,
+   "depth_min": -2.696387755,
+   "depth_max": 9.652030808,
+   "phases": [
+    "Phase 2"
+   ],
+   "source_blocks": [
+    "Phase 2 - Before 07/30/2024",
+    "Phase 2 - 07/30/2024 to Latest"
+   ],
+   "site_name": "Robert's Field",
+   "standard_site_code": "RF",
+   "sensor_id": 1.0,
+   "bytes_gz": 2502056
+  },
+  {
+   "id": "RF_2",
+   "file": "sites/RF_2.json.gz",
+   "source_chunk": "Chunk_04_Roberts_Field.rds",
+   "rows": 871514,
+   "rows_missing_time": 1315,
+   "rows_missing_depth": 22392,
+   "t_min": 1479013440.0,
+   "t_max": 1780289700.0,
+   "depth_min": -2.69444898,
+   "depth_max": 9.616220269,
+   "phases": [
+    "Phase 1",
+    "Phase 2"
+   ],
+   "source_blocks": [
+    "Phase 1",
+    "Phase 2 - Before 07/30/2024",
+    "Phase 2 - 07/30/2024 to Latest"
+   ],
+   "site_name": "Robert's Field",
+   "standard_site_code": "RF",
+   "sensor_id": 2.0,
+   "bytes_gz": 3842709
+  },
+  {
+   "id": "SR_1",
+   "file": "sites/SR_1.json.gz",
+   "source_chunk": "Chunk_05_Shannon_Run.rds",
+   "rows": 842916,
+   "rows_missing_time": 1318,
+   "rows_missing_depth": 14488,
+   "t_min": 1479013260.0,
+   "t_max": 1780289700.0,
+   "depth_min": -5.109157869,
+   "depth_max": 1.026756402,
+   "phases": [
+    "Phase 1",
+    "Phase 2"
+   ],
+   "source_blocks": [
+    "Phase 1",
+    "Phase 2 - Before 07/30/2024",
+    "Phase 2 - 07/30/2024 to Latest"
+   ],
+   "site_name": "Shannon Run",
+   "standard_site_code": "SR",
+   "sensor_id": 1.0,
+   "bytes_gz": 3913983
+  },
+  {
+   "id": "SR_3",
+   "file": "sites/SR_3.json.gz",
+   "source_chunk": "Chunk_05_Shannon_Run.rds",
+   "rows": 572463,
+   "rows_missing_time": 1315,
+   "rows_missing_depth": 14478,
+   "t_min": 1607009100.0,
+   "t_max": 1780289700.0,
+   "depth_min": -5.10556978,
+   "depth_max": 2.695640096,
+   "phases": [
+    "Phase 2"
+   ],
+   "source_blocks": [
+    "Phase 2 - Before 07/30/2024",
+    "Phase 2 - 07/30/2024 to Latest"
+   ],
+   "site_name": "Shannon Run",
+   "standard_site_code": "SR",
+   "sensor_id": 3.0,
+   "bytes_gz": 2497231
+  }
+ ],
+ "crosswalk": [
+  {
+   "Final_List_Name": "BR_2",
+   "Standard_Site_Code": "BR",
+   "Site_Name": "Blue Ridge",
+   "Sensor_ID": 2.0,
+   "Phase1_Name_in_all_data": null,
+   "Phase2_Column_Name": "Blue_Ridge_2",
+   "Matching_Notes": "No corresponding Phase 1 dataset was identified in all_data"
+  },
+  {
+   "Final_List_Name": "BR_3",
+   "Standard_Site_Code": "BR",
+   "Site_Name": "Blue Ridge",
+   "Sensor_ID": 3.0,
+   "Phase1_Name_in_all_data": "BR_3_Phase01_Depth; BR_3_Phase01(Part2)_Depth",
+   "Phase2_Column_Name": "Blue_Ridge_3",
+   "Matching_Notes": "BR corresponds to Blue Ridge; two Phase 1 data blocks are combined sequentially"
+  },
+  {
+   "Final_List_Name": "CM_1",
+   "Standard_Site_Code": "CM",
+   "Site_Name": "Central Maryland",
+   "Sensor_ID": 1.0,
+   "Phase1_Name_in_all_data": "CM_1_Phase01_Depth",
+   "Phase2_Column_Name": "MD_SVC_1",
+   "Matching_Notes": "The Phase 2 MD_SVC naming is standardized as CM"
+  },
+  {
+   "Final_List_Name": "CM_2",
+   "Standard_Site_Code": "CM",
+   "Site_Name": "Central Maryland",
+   "Sensor_ID": 2.0,
+   "Phase1_Name_in_all_data": null,
+   "Phase2_Column_Name": "MD_SVC_2",
+   "Matching_Notes": "The Phase 2 MD_SVC naming is standardized as CM; no Phase 1 source was identified"
+  },
+  {
+   "Final_List_Name": "PRV_1",
+   "Standard_Site_Code": "PRV",
+   "Site_Name": "PRV",
+   "Sensor_ID": 1.0,
+   "Phase1_Name_in_all_data": "PR_1_Phase01_Depth",
+   "Phase2_Column_Name": "PRV_1",
+   "Matching_Notes": "The Phase 1 PR naming is standardized as PRV"
+  },
+  {
+   "Final_List_Name": "PRV_2",
+   "Standard_Site_Code": "PRV",
+   "Site_Name": "PRV",
+   "Sensor_ID": 2.0,
+   "Phase1_Name_in_all_data": "PR_2_Phase01_Depth",
+   "Phase2_Column_Name": "PRV_2",
+   "Matching_Notes": "The Phase 1 PR naming is standardized as PRV"
+  },
+  {
+   "Final_List_Name": "RF_1",
+   "Standard_Site_Code": "RF",
+   "Site_Name": "Robert's Field",
+   "Sensor_ID": 1.0,
+   "Phase1_Name_in_all_data": null,
+   "Phase2_Column_Name": "Robert's_Field_1",
+   "Matching_Notes": "Robert's_Field is standardized as RF; no Phase 1 source was identified"
+  },
+  {
+   "Final_List_Name": "RF_2",
+   "Standard_Site_Code": "RF",
+   "Site_Name": "Robert's Field",
+   "Sensor_ID": 2.0,
+   "Phase1_Name_in_all_data": "RF_2_Phase01_Depth",
+   "Phase2_Column_Name": "Robert's_Field_2",
+   "Matching_Notes": "Robert's_Field is standardized as RF"
+  },
+  {
+   "Final_List_Name": "SR_1",
+   "Standard_Site_Code": "SR",
+   "Site_Name": "Shannon Run",
+   "Sensor_ID": 1.0,
+   "Phase1_Name_in_all_data": "SR_1_Phase01_Depth",
+   "Phase2_Column_Name": "Shannon_1",
+   "Matching_Notes": "Shannon is standardized as SR"
+  },
+  {
+   "Final_List_Name": "SR_3",
+   "Standard_Site_Code": "SR",
+   "Site_Name": "Shannon Run",
+   "Sensor_ID": 3.0,
+   "Phase1_Name_in_all_data": null,
+   "Phase2_Column_Name": "Shannon_3",
+   "Matching_Notes": "Shannon is standardized as SR; no Phase 1 source was identified"
+  }
+ ]
+}
